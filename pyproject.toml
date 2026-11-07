@@ -14,6 +14,28 @@ dependencies = [
     "pandas>=2.3.3",
 ]
 
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Quality Assurance",
+]
+
+[project.urls]
+Homepage = "https://github.com/Meharsai26/ml-reliability-toolkit"
+Documentation = "https://github.com/Meharsai26/ml-reliability-toolkit#readme"
+Repository = "https://github.com/Meharsai26/ml-reliability-toolkit"
+Issues = "https://github.com/Meharsai26/ml-reliability-toolkit/issues"
+Changelog = "https://github.com/Meharsai26/ml-reliability-toolkit/releases"
+
 [project.optional-dependencies]
 demo = [
     "scikit-learn>=1.7.2",
