@@ -1,5 +1,10 @@
 # ML Reliability Toolkit
 
+[![CI](https://github.com/Meharsai26/ml-reliability-toolkit/actions/workflows/ci.yml/badge.svg)](https://github.com/Meharsai26/ml-reliability-toolkit/actions/workflows/ci.yml)
+[![PyPI](https://img.shields.io/pypi/v/ml-reliability-toolkit)](https://pypi.org/project/ml-reliability-toolkit/)
+[![Python](https://img.shields.io/pypi/pyversions/ml-reliability-toolkit)](https://pypi.org/project/ml-reliability-toolkit/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 A Python toolkit for assessing machine-learning reliability beyond basic accuracy. It combines data-quality validation, model diagnostics, distribution analysis, and controlled stress testing to identify potential issues before deployment.
 
 ## Features
@@ -84,6 +89,57 @@ ML Reliability Toolkit is officially published on PyPI. Install the latest avail
 ```bash
 pip install ml-reliability-toolkit
 ```
+
+## Quick Start
+
+This example trains a Logistic Regression model using the Breast Cancer Wisconsin dataset and evaluates it with ML Reliability Toolkit.
+
+Install the toolkit with the optional demo dependencies:
+
+```bash
+pip install "ml-reliability-toolkit[demo]"
+```
+
+```python
+import pandas as pd
+from sklearn.datasets import load_breast_cancer
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import StandardScaler
+
+from ml_reliability import ReliabilitySuite
+
+dataset = load_breast_cancer()
+
+X = pd.DataFrame(dataset.data, columns=dataset.feature_names)
+y = pd.Series(dataset.target)
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42, stratify=y
+)
+
+model = make_pipeline(
+    StandardScaler(),
+    LogisticRegression(max_iter=2000),
+)
+
+model.fit(X_train, y_train)
+
+report = ReliabilitySuite(task_type="classification").run(
+    X_train=X_train,
+    y_train=y_train,
+    X_test=X_test,
+    y_test=y_test,
+    model=model,
+)
+
+print("Reliability Score:", report.score)
+print("Reliability Grade:", report.grade)
+print("Failed Checks:", len(report.failed_checks))
+```
+
+The score summarizes applicable diagnostic checks. Review individual findings, warnings, and recommendations before drawing conclusions about model reliability.
 
 ## Basic Usage
 
