@@ -79,7 +79,7 @@ uv pip install ./dist/ml_reliability_toolkit-0.1.0-py3-none-any.whl
 
 ### PyPI publication
 
-The package has not yet been published to PyPI. Once published, it can be installed using:
+ML Reliability Toolkit is officially published on PyPI. Install the latest available version using:
 
 ```bash
 pip install ml-reliability-toolkit
