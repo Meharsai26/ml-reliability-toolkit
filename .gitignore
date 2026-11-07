@@ -1,0 +1,30 @@
+﻿# Python cache files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Build and distribution artifacts
+build/
+dist/
+wheels/
+*.egg-info/
+
+# Virtual environments
+.venv/
+.venv*/
+venv/
+
+# Environment variables and secrets
+.env
+.env.*
+
+# Generated demo reports
+demo_outputs/
+
+# Temporary test reports
+test_report.json
+test_report.md
+test_report.html
+
+# Generated package validation reports
+package_validation_output/

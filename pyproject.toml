@@ -1,0 +1,32 @@
+[project]
+name = "ml-reliability-toolkit"
+version = "0.1.0"
+license = "MIT"
+license-files = ["LICENSE"]
+description = "Pre-deployment reliability checks for machine-learning systems."
+readme = "README.md"
+authors = [
+    { name = "Meharsai26", email = "meharsai514@gmail.com" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=2.0",
+    "pandas>=2.3.3",
+]
+
+[project.optional-dependencies]
+demo = [
+    "scikit-learn>=1.7.2",
+]
+
+[build-system]
+requires = ["uv_build>=0.7.8,<0.8"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "ml_reliability"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
